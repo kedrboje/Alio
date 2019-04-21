@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ndZ-B4-vfD">
-    <device id="retina6_1" orientation="portrait">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,9 +15,9 @@
             <objects>
                 <viewController id="mul-IL-2Cf" customClass="PhotoLibraryViewController" customModule="Alio" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KOP-6i-Ebx">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                         <viewLayoutGuide key="safeArea" id="dF9-s7-O3A"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Photo Library" image="photo-7" id="Vz4-8D-bH7"/>
@@ -31,16 +31,41 @@
             <objects>
                 <viewController id="HFO-Fw-wR0" customClass="CameraViewController" customModule="Alio" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xxx-9g-uGx">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xZq-FG-gac">
+                                <rect key="frame" x="16" y="58" width="343" height="321"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="321" id="Ss3-Rx-3Vg"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8RP-P2-0qw">
+                                <rect key="frame" x="145" y="530" width="85" height="30"/>
+                                <state key="normal" title="Take Picture"/>
+                                <connections>
+                                    <action selector="takePicture:" destination="HFO-Fw-wR0" eventType="touchUpInside" id="alU-AO-IZt"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="oMZ-5X-5gz" firstAttribute="bottom" secondItem="8RP-P2-0qw" secondAttribute="bottom" constant="169" id="BHG-wA-oYf"/>
+                            <constraint firstItem="xZq-FG-gac" firstAttribute="centerX" secondItem="8RP-P2-0qw" secondAttribute="centerX" id="D35-VU-DjX"/>
+                            <constraint firstItem="xZq-FG-gac" firstAttribute="top" secondItem="oMZ-5X-5gz" secondAttribute="top" constant="14" id="X0g-GQ-BJy"/>
+                            <constraint firstItem="xZq-FG-gac" firstAttribute="leading" secondItem="xxx-9g-uGx" secondAttribute="leadingMargin" id="caW-Hv-1I4"/>
+                            <constraint firstItem="xZq-FG-gac" firstAttribute="trailing" secondItem="xxx-9g-uGx" secondAttribute="trailingMargin" id="hbs-py-Bvl"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="oMZ-5X-5gz"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Camera" selectedImage="camera-7" id="chE-Sq-ZUM"/>
+                    <connections>
+                        <outlet property="imageView" destination="xZq-FG-gac" id="EXh-TW-1Xz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OJg-c8-uGo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="778" y="-333"/>
+            <point key="canvasLocation" x="776.79999999999995" y="-333.99014778325125"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="j32-ac-W8L">
