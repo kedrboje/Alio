@@ -44,7 +44,7 @@
                                 <rect key="frame" x="145" y="530" width="85" height="30"/>
                                 <state key="normal" title="Take Picture"/>
                                 <connections>
-                                    <action selector="takePicture:" destination="HFO-Fw-wR0" eventType="touchUpInside" id="alU-AO-IZt"/>
+                                    <action selector="takePictureLicensePlate:" destination="HFO-Fw-wR0" eventType="touchUpInside" id="Rh1-QD-zZB"/>
                                 </connections>
                             </button>
                         </subviews>

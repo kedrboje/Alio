@@ -11,21 +11,22 @@ import UIKit
 class CameraViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     @IBOutlet var imageView: UIImageView!
-    @IBAction func takePicture(_ sender: UIButton) {
+    @IBAction func takePictureLicensePlate(_ sender: UIButton) {
         
-        let imagePicker = UIImagePickerController()
-        // If the device has a camera, take a picture; otherwise,
-        // just pick from photo library
+        let cameraImagePicker = UIImagePickerController()
+
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            imagePicker.sourceType = .camera
+            cameraImagePicker.sourceType = .camera
         } else {
-            imagePicker.sourceType = .photoLibrary
+            cameraImagePicker.sourceType = .photoLibrary
         }
         
-        imagePicker.delegate = self
+        cameraImagePicker.delegate = self
         
-        present(imagePicker, animated: true, completion: nil)
+        present(cameraImagePicker, animated: true, completion: nil)
+        
     }
+    
     
     override func viewDidLoad() {
         print("Camera Loaded!")
