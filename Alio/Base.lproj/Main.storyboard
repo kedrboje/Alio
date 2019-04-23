@@ -17,14 +17,30 @@
                     <view key="view" contentMode="scaleToFill" id="KOP-6i-Ebx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="dF9-s7-O3A"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Photo Library" image="photo-7" id="Vz4-8D-bH7"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FcO-bj-EiF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="778" y="314"/>
+            <point key="canvasLocation" x="777" y="372"/>
+        </scene>
+        <!--Session-->
+        <scene sceneID="WmP-qv-0rN">
+            <objects>
+                <viewController id="X61-Dt-I9q" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mCY-zt-J17">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="vQa-md-9YI"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Session" image="thumb-up-7" selectedImage="thumb-up-7" id="KJi-cL-Dec"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IqK-oe-b4d" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1610" y="-10"/>
         </scene>
         <!--Camera-->
         <scene sceneID="SZA-kZ-23d">
@@ -48,7 +64,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="oMZ-5X-5gz" firstAttribute="bottom" secondItem="8RP-P2-0qw" secondAttribute="bottom" constant="169" id="BHG-wA-oYf"/>
                             <constraint firstItem="xZq-FG-gac" firstAttribute="centerX" secondItem="8RP-P2-0qw" secondAttribute="centerX" id="D35-VU-DjX"/>
@@ -58,7 +74,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oMZ-5X-5gz"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Camera" selectedImage="camera-7" id="chE-Sq-ZUM"/>
+                    <tabBarItem key="tabBarItem" title="Camera" image="plus-simple-7" selectedImage="plus-simple-7" id="chE-Sq-ZUM"/>
                     <connections>
                         <outlet property="imageView" destination="xZq-FG-gac" id="EXh-TW-1Xz"/>
                     </connections>
@@ -71,7 +87,7 @@
         <scene sceneID="j32-ac-W8L">
             <objects>
                 <tabBarController id="ndZ-B4-vfD" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7jJ-Dr-WYX">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" itemPositioning="centered" id="7jJ-Dr-WYX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -79,6 +95,7 @@
                     <connections>
                         <segue destination="HFO-Fw-wR0" kind="relationship" relationship="viewControllers" id="7X0-dM-N6I"/>
                         <segue destination="mul-IL-2Cf" kind="relationship" relationship="viewControllers" id="sWO-7l-amI"/>
+                        <segue destination="X61-Dt-I9q" kind="relationship" relationship="viewControllers" id="0xF-MY-jPC"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OkB-u1-kXC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -87,7 +104,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="camera-7" width="30" height="30"/>
         <image name="photo-7" width="30" height="30"/>
+        <image name="plus-simple-7" width="30" height="30"/>
+        <image name="thumb-up-7" width="30" height="30"/>
     </resources>
 </document>
