@@ -72,19 +72,24 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EfM-3M-V8P">
                                 <rect key="frame" x="24" y="44" width="30" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" image="camera-7"/>
                                 <connections>
                                     <action selector="takePictureLicensePlate:" destination="HFO-Fw-wR0" eventType="touchUpInside" id="Avw-FG-hPl"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pjF-3X-Azq">
-                                <rect key="frame" x="313" y="44" width="48" height="30"/>
+                                <rect key="frame" x="300" y="44" width="61" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Gallery">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="takePictureFromGallery:" destination="HFO-Fw-wR0" eventType="touchUpInside" id="Mio-Nt-NP4"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PredictionLabelCamera" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tin-Ky-O5m">
-                                <rect key="frame" x="98.333333333333329" y="657" width="178.66666666666669" height="21"/>
+                                <rect key="frame" x="98" y="657" width="179" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -92,16 +97,16 @@
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="EfM-3M-V8P" firstAttribute="top" secondItem="pjF-3X-Azq" secondAttribute="top" id="1g7-2S-Fbo"/>
-                            <constraint firstItem="xZq-FG-gac" firstAttribute="trailing" secondItem="xxx-9g-uGx" secondAttribute="trailingMargin" id="Cwp-u6-4eE"/>
-                            <constraint firstItem="xZq-FG-gac" firstAttribute="centerX" secondItem="Tin-Ky-O5m" secondAttribute="centerX" id="HeS-Rf-AnW"/>
-                            <constraint firstItem="xZq-FG-gac" firstAttribute="leading" secondItem="xxx-9g-uGx" secondAttribute="leadingMargin" id="S4s-y7-Uri"/>
-                            <constraint firstItem="EfM-3M-V8P" firstAttribute="top" secondItem="oMZ-5X-5gz" secondAttribute="top" id="UMB-Le-tus"/>
-                            <constraint firstItem="oMZ-5X-5gz" firstAttribute="bottom" secondItem="Tin-Ky-O5m" secondAttribute="bottom" constant="51" id="hR0-Le-jFE"/>
-                            <constraint firstItem="Tin-Ky-O5m" firstAttribute="top" secondItem="xZq-FG-gac" secondAttribute="bottom" constant="33" id="wr7-em-lAe"/>
-                            <constraint firstItem="xZq-FG-gac" firstAttribute="top" secondItem="EfM-3M-V8P" secondAttribute="bottom" constant="8" symbolic="YES" id="xMj-1P-Xt3"/>
-                            <constraint firstItem="EfM-3M-V8P" firstAttribute="leading" secondItem="oMZ-5X-5gz" secondAttribute="leading" constant="24" id="ykv-cU-OBV"/>
-                            <constraint firstItem="oMZ-5X-5gz" firstAttribute="trailing" secondItem="pjF-3X-Azq" secondAttribute="trailing" constant="14" id="yp3-KV-enx"/>
+                            <constraint firstItem="xZq-FG-gac" firstAttribute="trailing" secondItem="xxx-9g-uGx" secondAttribute="trailingMargin" id="2Nl-Tc-bll"/>
+                            <constraint firstItem="EfM-3M-V8P" firstAttribute="top" secondItem="pjF-3X-Azq" secondAttribute="top" id="OBz-lc-Kb9"/>
+                            <constraint firstItem="xZq-FG-gac" firstAttribute="leading" secondItem="xxx-9g-uGx" secondAttribute="leadingMargin" id="VcX-hS-RVV"/>
+                            <constraint firstItem="oMZ-5X-5gz" firstAttribute="bottom" secondItem="Tin-Ky-O5m" secondAttribute="bottom" constant="51" id="XHw-AA-eKx"/>
+                            <constraint firstItem="Tin-Ky-O5m" firstAttribute="top" secondItem="xZq-FG-gac" secondAttribute="bottom" constant="33" id="Xht-kt-b40"/>
+                            <constraint firstItem="xZq-FG-gac" firstAttribute="top" secondItem="EfM-3M-V8P" secondAttribute="bottom" constant="8" symbolic="YES" id="kjK-hi-RgT"/>
+                            <constraint firstItem="EfM-3M-V8P" firstAttribute="top" secondItem="oMZ-5X-5gz" secondAttribute="top" id="moI-Jm-tWu"/>
+                            <constraint firstItem="EfM-3M-V8P" firstAttribute="leading" secondItem="oMZ-5X-5gz" secondAttribute="leading" constant="24" id="pLi-1v-6ZG"/>
+                            <constraint firstItem="oMZ-5X-5gz" firstAttribute="trailing" secondItem="pjF-3X-Azq" secondAttribute="trailing" constant="14" id="qV6-cl-srH"/>
+                            <constraint firstItem="xZq-FG-gac" firstAttribute="centerX" secondItem="Tin-Ky-O5m" secondAttribute="centerX" id="v1Y-ne-Y9d"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oMZ-5X-5gz"/>
                     </view>
