@@ -18,7 +18,7 @@ class CameraViewController: UIViewController, UINavigationControllerDelegate, UI
         
         let cameraImagePicker = UIImagePickerController()
         
-//      handle camera availability exeption
+//      handle camera availability exception
         guard UIImagePickerController.isSourceTypeAvailable(.camera) else {
             let alertMessage = UIAlertController(title: "Camera Error", message: "No camera", preferredStyle: .alert)
             let ok = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
@@ -37,6 +37,8 @@ class CameraViewController: UIViewController, UINavigationControllerDelegate, UI
         
         let galleryImagePicker = UIImagePickerController()
         
+//      handle photo library availability exception
+
         guard UIImagePickerController.isSourceTypeAvailable(.photoLibrary) else {
             let alertMessage = UIAlertController(title: "Photo Library Error", message: "No photos", preferredStyle: .alert)
             let ok = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
@@ -48,6 +50,18 @@ class CameraViewController: UIViewController, UINavigationControllerDelegate, UI
         galleryImagePicker.sourceType = .photoLibrary
         galleryImagePicker.delegate = self
         present(galleryImagePicker, animated: true, completion: nil)
+        
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        dismiss(animated: true, completion: nil)
+        
+        guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
+            fatalError("coludn't load image")
+        }
+        
+        imageView.image = image
         
     }
     
