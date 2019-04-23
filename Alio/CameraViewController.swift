@@ -11,6 +11,9 @@ import UIKit
 class CameraViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     @IBOutlet var imageView: UIImageView!
+    
+    @IBOutlet var predictionLabelCamera: UILabel!
+    
     @IBAction func takePictureLicensePlate(_ sender: UIButton) {
         
         let cameraImagePicker = UIImagePickerController()
@@ -25,12 +28,6 @@ class CameraViewController: UIViewController, UINavigationControllerDelegate, UI
         
         present(cameraImagePicker, animated: true, completion: nil)
         
-    }
-    
-    
-    override func viewDidLoad() {
-        print("Camera Loaded!")
-        super.viewDidLoad()
     }
     
 }
