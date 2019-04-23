@@ -9,15 +9,14 @@
 import UIKit
 import AVFoundation
 
-private func setupAVSession() {
-    
-}
+
 
 class SessionViewController: UIViewController {
     
     @IBOutlet var imageViewSession: UIImageView!
     
-    @IBAction func startSessionutton(_ sender: UIButton) {
+
+    @IBAction func startSessionButton(_ sender: UIButton) {
     }
     
     @IBOutlet var predictionLabelSession: UILabel!

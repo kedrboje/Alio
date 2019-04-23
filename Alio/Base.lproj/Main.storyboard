@@ -25,7 +25,7 @@
                                 <rect key="frame" x="141" y="677" width="93" height="30"/>
                                 <state key="normal" title="Start Session"/>
                                 <connections>
-                                    <action selector="startSessionutton:" destination="X61-Dt-I9q" eventType="touchUpInside" id="xNi-WW-Q93"/>
+                                    <action selector="startSessionButton:" destination="X61-Dt-I9q" eventType="touchUpInside" id="Any-xE-eFx"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PredictionLabelSession" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aYU-UR-64X">
