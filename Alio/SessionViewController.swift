@@ -8,58 +8,64 @@
 
 import UIKit
 import AVFoundation
+import Vision
 
-
-
-class SessionViewController: UIViewController {
+class SessionViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
     
+    var sequenceHandler = VNSequenceRequestHandler()
+    @IBOutlet var predictionLabelSession: UILabel!
     @IBOutlet var imageViewSession: UIImageView!
-    
-    let overlayLayer = CALayer()
-    let session = AVCaptureSession()
-    
     @IBAction func startSessionButton(_ sender: UIButton) {
         startSession()
     }
-    
-    @IBOutlet var predictionLabelSession: UILabel!
-    
+ 
     override func viewDidLoad() {
-        print("Session View Loaded!")
         super.viewDidLoad()
     }
     
+    let session = AVCaptureSession()
+    var previewLayer: AVCaptureVideoPreviewLayer!
+    
+    let dataOutputQueue = DispatchQueue(
+        label: "video data queue",
+        qos: .userInitiated,
+        attributes: [],
+        autoreleaseFrequency: .workItem)
+
+}
+
+// CREATE SESSION
+extension SessionViewController {
     private func startSession() {
-        
 //      Configuration for the captureSession (between begin and commitConfiguration)
         session.beginConfiguration()
-        let videoSource = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back)
-        
+        let videoSource = AVCaptureDevice.default(.builtInWideAngleCamera,
+                                                  for: .video,
+                                                  position: .back)
 //      handle availability of videoSource
         guard let videoSourceInput = try? AVCaptureDeviceInput(device: videoSource!), session.canAddInput(videoSourceInput) else {
             return
         }
-//      add input
+        
         session.addInput(videoSourceInput)
         
-//      handle availability of output
+//      create and add custom video data output
         let videoSourceOutput = AVCaptureVideoDataOutput()
-        guard session.canAddOutput(videoSourceOutput) else {
-            return
-        }
-//      add output
+        videoSourceOutput.setSampleBufferDelegate(self, queue: dataOutputQueue)
+        videoSourceOutput.videoSettings = [kCVPixelBufferPixelFormatTypeKey as String: kCVPixelFormatType_32BGRA]
         session.addOutput(videoSourceOutput)
+
+        let videoConnection = videoSourceOutput.connection(with: .video)
+        videoConnection?.videoOrientation = .portrait
         
         session.commitConfiguration()
-        
-//      create and add custom layer to the imageViewSession
-        let previewLayer = AVCaptureVideoPreviewLayer(session: session)
+        previewLayer = AVCaptureVideoPreviewLayer(session: session)
         previewLayer.frame.size = imageViewSession.frame.size
         previewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
         imageViewSession.layer.addSublayer(previewLayer)
-        imageViewSession.layer.addSublayer(overlayLayer)
-    
+        
         session.startRunning()
     }
-    
 }
+
+
