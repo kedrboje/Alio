@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import CoreML
+import Vision
 
 class CameraViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
@@ -63,6 +65,44 @@ class CameraViewController: UIViewController, UINavigationControllerDelegate, UI
         
         imageView.image = image
         
+        guard let ciImage = CIImage(image: image) else {
+            fatalError("couldn't convert")
+        }
+        detectAge(image: ciImage)
     }
+}
+
+extension CameraViewController {
     
+    func detectAge(image: CIImage) {
+        predictionLabelCamera.text = "Detecting age..."
+        
+        // Load the ML model through its generated class
+        guard let model = try? VNCoreMLModel(for: AgeNet().model) else {
+            fatalError("can't load AgeNet model")
+        }
+        
+        // Create request for Vision Core ML model created
+        let request = VNCoreMLRequest(model: model) { [weak self] request, error in
+            guard let results = request.results as? [VNClassificationObservation],
+                let topResult = results.first else {
+                    fatalError("unexpected result type from VNCoreMLRequest")
+            }
+            
+            // Update UI on main queue
+            DispatchQueue.main.async { [weak self] in
+                self?.predictionLabelCamera.text = "I think your age is \(topResult.identifier) years!"
+            }
+        }
+        
+        // Run the Core ML AgeNet classifier on global dispatch queue
+        let handler = VNImageRequestHandler(ciImage: image)
+        DispatchQueue.global(qos: .userInteractive).async {
+            do {
+                try handler.perform([request])
+            } catch {
+                print(error)
+            }
+        }
+    }
 }

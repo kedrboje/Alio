@@ -15,10 +15,11 @@ class SessionViewController: UIViewController {
     
     @IBOutlet var imageViewSession: UIImageView!
     
+    let overlayLayer = CALayer()
+    let session = AVCaptureSession()
+    
     @IBAction func startSessionButton(_ sender: UIButton) {
-        
         startSession()
-        
     }
     
     @IBOutlet var predictionLabelSession: UILabel!
@@ -30,8 +31,6 @@ class SessionViewController: UIViewController {
     
     private func startSession() {
         
-        let session = AVCaptureSession()
-        
 //      Configuration for the captureSession (between begin and commitConfiguration)
         session.beginConfiguration()
         let videoSource = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back)
@@ -40,16 +39,17 @@ class SessionViewController: UIViewController {
         guard let videoSourceInput = try? AVCaptureDeviceInput(device: videoSource!), session.canAddInput(videoSourceInput) else {
             return
         }
-        
 //      add input
         session.addInput(videoSourceInput)
+        
+//      handle availability of output
         let videoSourceOutput = AVCaptureVideoDataOutput()
         guard session.canAddOutput(videoSourceOutput) else {
             return
         }
-        
 //      add output
         session.addOutput(videoSourceOutput)
+        
         session.commitConfiguration()
         
 //      create and add custom layer to the imageViewSession
@@ -57,6 +57,7 @@ class SessionViewController: UIViewController {
         previewLayer.frame.size = imageViewSession.frame.size
         previewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
         imageViewSession.layer.addSublayer(previewLayer)
+        imageViewSession.layer.addSublayer(overlayLayer)
     
         session.startRunning()
     }
