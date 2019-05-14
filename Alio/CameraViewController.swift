@@ -12,14 +12,10 @@ import Vision
 
 class CameraViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
+    let cameraImagePicker = UIImagePickerController()
     @IBOutlet var imageView: UIImageView!
-    
     @IBOutlet var predictionLabelCamera: UILabel!
-    
     @IBAction func takePictureLicensePlate(_ sender: UIButton) {
-        
-        let cameraImagePicker = UIImagePickerController()
-        
 //      handle camera availability exception
         guard UIImagePickerController.isSourceTypeAvailable(.camera) else {
             let alertMessage = UIAlertController(title: "Camera Error", message: "No camera", preferredStyle: .alert)
