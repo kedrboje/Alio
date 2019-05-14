@@ -15,7 +15,7 @@ class CameraViewController: UIViewController, UINavigationControllerDelegate, UI
     let cameraImagePicker = UIImagePickerController()
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var predictionLabelCamera: UILabel!
-    @IBAction func takePictureLicensePlate(_ sender: UIButton) {
+    @IBAction func takePictureFromCamera(_ sender: UIButton) {
 //      handle camera availability exception
         guard UIImagePickerController.isSourceTypeAvailable(.camera) else {
             let alertMessage = UIAlertController(title: "Camera Error", message: "No camera", preferredStyle: .alert)
@@ -64,41 +64,38 @@ class CameraViewController: UIViewController, UINavigationControllerDelegate, UI
         guard let ciImage = CIImage(image: image) else {
             fatalError("couldn't convert")
         }
-        detectAge(image: ciImage)
+        detectDigit(image: ciImage)
+        
     }
 }
 
 extension CameraViewController {
     
-    func detectAge(image: CIImage) {
-        predictionLabelCamera.text = "Detecting age..."
-        
-        // Load the ML model through its generated class
-        guard let model = try? VNCoreMLModel(for: AgeNet().model) else {
-            fatalError("can't load AgeNet model")
-        }
-        
-        // Create request for Vision Core ML model created
-        let request = VNCoreMLRequest(model: model) { [weak self] request, error in
-            guard let results = request.results as? [VNClassificationObservation],
-                let topResult = results.first else {
-                    fatalError("unexpected result type from VNCoreMLRequest")
-            }
-            
-            // Update UI on main queue
-            DispatchQueue.main.async { [weak self] in
-                self?.predictionLabelCamera.text = "I think your age is \(topResult.identifier) years!"
-            }
-        }
-        
-        // Run the Core ML AgeNet classifier on global dispatch queue
-        let handler = VNImageRequestHandler(ciImage: image)
-        DispatchQueue.global(qos: .userInteractive).async {
+    func detectDigit(image: CIImage) {
+         var classificationRequest: VNCoreMLRequest = {
             do {
-                try handler.perform([request])
+                let model = try VNCoreMLModel(for: MNIST_model().model)
+                return VNCoreMLRequest(model: model, completionHandler: handleClassification)
             } catch {
-                print(error)
+                fatalError()
             }
+        }()
+        
+        func handleClassification(request: VNRequest, error: Error?) {
+            guard let observations = request.results as? [VNClassificationObservation]
+                else { fatalError() }
+            guard let best = observations.first
+                else { fatalError() }
+            
+            DispatchQueue.main.async {
+                self.predictionLabelCamera.text = best.identifier
+            }
+        }
+        let handler = VNImageRequestHandler(ciImage: image)
+        do {
+            try handler.perform([classificationRequest])
+        } catch {
+            print(error)
         }
     }
 }

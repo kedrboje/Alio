@@ -7,16 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F616B7822874A5300F79A39 /* MNIST_model.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 9F616B7722874A5300F79A39 /* MNIST_model.mlmodel */; };
 		9FB2D5D3226CED1700C2724E /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB2D5D2226CED1700C2724E /* CameraViewController.swift */; };
 		9FB80B4F22511A1600EC484F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FB80B4E22511A1600EC484F /* AppDelegate.swift */; };
 		9FB80B5422511A1600EC484F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FB80B5222511A1600EC484F /* Main.storyboard */; };
 		9FB80B5622511A1700EC484F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FB80B5522511A1700EC484F /* Assets.xcassets */; };
 		9FB80B5922511A1700EC484F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9FB80B5722511A1700EC484F /* LaunchScreen.storyboard */; };
-		9FB9F70C226FB4BB000B6877 /* AgeNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 9FB9F70B226FB4BB000B6877 /* AgeNet.mlmodel */; };
 		9FD83863226F6CA10023AB12 /* SessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD83862226F6CA10023AB12 /* SessionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9F616B7722874A5300F79A39 /* MNIST_model.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MNIST_model.mlmodel; sourceTree = SOURCE_ROOT; };
 		9FB2D5D2226CED1700C2724E /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		9FB80B4B22511A1600EC484F /* Alio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FB80B4E22511A1600EC484F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -24,7 +25,6 @@
 		9FB80B5522511A1700EC484F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9FB80B5822511A1700EC484F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9FB80B5A22511A1700EC484F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9FB9F70B226FB4BB000B6877 /* AgeNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = AgeNet.mlmodel; sourceTree = SOURCE_ROOT; };
 		9FD83862226F6CA10023AB12 /* SessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -64,8 +64,8 @@
 				9FD83862226F6CA10023AB12 /* SessionViewController.swift */,
 				9FB80B5522511A1700EC484F /* Assets.xcassets */,
 				9FB80B5722511A1700EC484F /* LaunchScreen.storyboard */,
+				9F616B7722874A5300F79A39 /* MNIST_model.mlmodel */,
 				9FB80B5A22511A1700EC484F /* Info.plist */,
-				9FB9F70B226FB4BB000B6877 /* AgeNet.mlmodel */,
 			);
 			path = Alio;
 			sourceTree = "<group>";
@@ -144,7 +144,7 @@
 			files = (
 				9FB80B4F22511A1600EC484F /* AppDelegate.swift in Sources */,
 				9FD83863226F6CA10023AB12 /* SessionViewController.swift in Sources */,
-				9FB9F70C226FB4BB000B6877 /* AgeNet.mlmodel in Sources */,
+				9F616B7822874A5300F79A39 /* MNIST_model.mlmodel in Sources */,
 				9FB2D5D3226CED1700C2724E /* CameraViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
